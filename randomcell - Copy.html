@@ -1,0 +1,115 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<script>
+function createTable(size) {
+  var table, tr, td;
+  
+  table = document.createElement('table');
+
+  for (var row = 0; row < size; ++row) {
+    tr = document.createElement('tr');
+    for (var col = 0; col < size; ++col) {
+      td = document.createElement('td');
+      td.id = 'cell_' + (row * size + col);
+      td.innerHTML = '0';
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  
+  return table;
+}
+
+function selectRandomCells(size, count) {
+  var x, numCells, cellId, cell;
+  
+  numCells = size * size;
+  x        = 0;
+  
+  while (x < count && x < numCells) {
+    cellId = 'cell_' + Math.floor(Math.random() * numCells);
+    cell   = document.getElementById(cellId);
+    
+    if (cell.classList.contains('selected')) {
+      // Already selected.
+      continue;
+    }
+    
+    cell.classList.add('selected');
+    cell.innerHTML='<a href="#" onclick="tableMatrixIncrement(size);">Hello</a>'
+	//cell.innerHTML = '1';
+    x++;
+	alert(size);
+  }
+
+}
+
+function tableMatrixIncrement () {
+  var board, myNumb, myContainer, table;
+  
+  // Form values.
+  //board  = document.forms["myForm"]["board"].value;;
+  myNumb = document.forms["myForm"]["myNumb"].value;
+  board =2;
+  myContainer = document.getElementById('myContainer');
+  myContainer.innerHTML = '';
+
+  // Create table.
+  table = createTable(board);
+
+	myContainer.appendChild(table);
+  
+  selectRandomCells(board, myNumb);
+};
+
+function tableMatrix () {
+  var board, myNumb, myContainer, table;
+  
+  // Form values.
+  //board  = document.forms["myForm"]["board"].value;;
+  myNumb = document.forms["myForm"]["myNumb"].value;
+  board =2;
+  myContainer = document.getElementById('myContainer');
+  myContainer.innerHTML = '';
+
+  // Create table.
+  table = createTable(board);
+
+	myContainer.appendChild(table);
+  
+  selectRandomCells(board, myNumb);
+};
+
+</script>
+<style>
+table {
+  width: 100%;
+}
+
+table, td {
+   border: 1px solid black;
+}
+
+td.selected {
+  background: #ccc;
+}
+</style>
+
+<form name="myForm" method="post">
+        <label>Row & Columns Number</label>
+        <br/>
+        <input type="number" name="board" placeholder="Number of rows">
+        <br/><br/>
+        <label>Number of selected cells</label>
+        <br/>
+        <input type="number" name="myNumb" value="1" placeholder="Number of selected cells">
+        <br/><br/>
+        <input type="button" value="submit" onclick="tableMatrix()">
+    </form>
+    
+        <div id="myContainer"></div>
+</body>
+</html>

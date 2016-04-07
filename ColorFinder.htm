@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="js/materialize.min.js" type="text/javascript"></script>
+</head>
+<body class="light-blue darken-4">
+<script>
+    $(document).ready(function () {
+        var height = $(window).height();
+        $(".valign-wrapper").css("height", height);
+        $("#start").click(function () {
+            $(".startDiv").hide();
+        });
+    });
+</script>
+<style>
+.row{margin-left:0px !important;width:100%}
+.valign-wrapper{width:100%;}
+.valign{text-shadow:1px 0px 0px #000;}
+.row p{font-weight:300;}
+</style>
+<div class="container center-align " >
+    <div class="valign-wrapper" >
+        <div class="row startDiv" >
+        <h5 class="valign white-text">Color Finder</h5>
+        <div class="clearfix"></div>
+        <p class="white-text">Find the different Cube, Share on Moments who beats the most players.</p>
+        <div class="clearfix"></div>
+        <a href="randomcell.html" id="start" class="btn white indigo-text waves-effect waves-black">START</a>
+        </div>
+        <div class="">
+            
+        </div>
+    </div>
+</div>    
+</body>
+</html>
