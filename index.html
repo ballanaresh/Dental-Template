@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
+    
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="js/materialize.min.js" type="text/javascript"></script>
+    <link href="MaterialDesign-Webfont-master/css/materialdesignicons.css" rel="stylesheet"'
+        type="text/css" />
+
+<style>
+@font-face {
+  font-family: "Belladona";
+  src: local(Belladona Thin), url("../font/Belladona.ttf") format("truetype");
+font-weight:600;
+}
+
+@font-face {
+  font-family: "GreatVibes";
+  src: local(GreatVibes Thin), url("../font/GreatVibes-Regular.ttf") b format("truetype");
+font-weight:600;
+}
+.row{margin-bottom:0px !important;}
+body{overflow-x:hidden;overflow-y:auto;}
+
+.close{position:absolute;right:30px;top:30px;z-index:99999 !important;padding:5px;border-radius:50%;-webkit-animation:close .5s ease-in-out}
+@-webkit-keyframes close
+{
+    0%{-webkit-transform:scale(0);}
+    25%{-webkit-transform:scale(1.2);}
+    50%{-webkit-transform:scale(.8);}
+    100%{-webkit-transform:scale(1);}
+}
+
+.material-tooltip{z-index:9999 !important;}
+
+.btn-floating span{-webkit-transition:all .3s ease-in-out;content:"";position:absolute;width:17px;height:2px;background:#424242;}
+.btn-floating span.first{top:22.2px;left:19px;}
+.btn-floating span.second{top:26.7px;left:19px;}
+.btn-floating span.third{top:31.7px;left:19px;}
+
+.first-one{-webkit-transform-origin:25% 200%;-webkit-transform:rotate(45deg);width:25px !important;}
+.second-one{width:0px !important;}
+.third-one{-webkit-transform-origin:30% -50%;-webkit-transform:rotate(-45deg);width:25px !important;}
+.toggleIcon{left:15px !important;position:absolute;}
+
+.leftBtn{z-index:99999 !important;bottom:40px;left:40px;position:fixed;}
+.leftBtn ul{margin:0px !important;}
+.leftBtn ul li{position:absolute;top:10px;z-index:0;left:9px;-webkit-transition:all .5s;}
+/*.leftBtn:hover>ul li:first-child{-webkit-transform:translate(0px,-50px);}*/
+.nth-child-1{-webkit-transform:translateY(-110px)}
+.nth-child-2{-webkit-transform:translate(50px,-90px)}
+.nth-child-3{-webkit-transform:translate(90px,-50px)}
+.nth-child-4{-webkit-transform:translate(110px,0px)}
+
+.leftBtn ul li:before{position:absolute;top:0px;left:0px;width:10%;height:10%;background:#FFF;content:"";-webkit-transition:all .5s ease-in-out;border-radius:50%;display:none;}
+.leftBtn ul li:after{position:absolute;bottom:0px;left:0px;width:10%;height:10%;background:#FFF;content:"";-webkit-transition:all .5s ease-in-out;border-radius:50%;display:none;}
+.leftBtn ul li:hover::before{-webkit-animation:mybefore 1s infinite;display: block;}
+.leftBtn ul li:hover::after{-webkit-animation:myafter 1.7s infinite;display: block;}
+
+@-webkit-keyframes mybefore
+{
+    0%{-webkit-transform:translate(10px,10px);}
+    25%{-webkit-transform:translate(0px,0px);}
+    50%{-webkit-transform:translate(0px,0px);z-index:9999;}
+    50%{-webkit-transform:translate(33px,33px);}
+    75%{-webkit-transform:translate(30px,30px);}
+    100%{-webkit-transform:translate(10px,10px);}
+}
+
+@-webkit-keyframes myafter
+{
+    0%{-webkit-transform:translate(10px,-10px);}
+    25%{-webkit-transform:translate(0px,0px);}
+    50%{-webkit-transform:translate(0px,0px);z-index:9999;}
+    50%{-webkit-transform:translate(33px,-33px);}
+    75%{-webkit-transform:translate(30px,-30px);}
+    100%{-webkit-transform:translate(10px,-10px);}
+}
+
+.div{position:absolute;bottom:0px;left:0px;content:"";width:0%;height:0%;border-radius:50%;display:block;-webkit-transition:all 2s ease-in-out;}
+#first{left:49px;bottom:158px;background:#F44336;-webkit-transition:all 2s ease-in-out;}
+#second{left:99px;bottom:138px;background:#795548;-webkit-transition:all 2s ease-in-out;}
+#third{left:139px;bottom:98px;background:#4CAF50;-webkit-transition:all 2s ease-in-out;}
+#fourth{left:159px;bottom:48px;background:#2196F3;-webkit-transition:all 2s ease-in-out;}
+
+.aboutMe{border-radius:3px;padding:0 15px 0 30px !important;z-index:9999 !important;}
+.aboutMe ul li{list-style-type:circle;}
+.aboutMe ul li:not(:last-child){margin-bottom:10px;font-weight:300;}
+.aboutMe ul li b{font-weight:500;}
+.aboutMe h5{font-weight:300;}
+.aboutMe h5:after{position:absolute;top:40px;left:30px;height:.5px;content:"";background:#FFF;-webkit-animation:all 3s infinite ease;}
+
+
+
+@-webkit-keyframes all
+{
+    0%{width:0px;}
+    50%{width:118px;}
+    100%{width:0px;}
+}
+
+/*.aboutMe h5:hover::after{width:118px !important;}*/
+.technicalSkills{z-index:9999 !important;font-weight:300;}
+.technicalSkills b{font-weight:400;}
+.technicalSkills .row:not(:last-child){margin-bottom:30px !important;}
+.technicalSkills .input-field{margin-bottom:30px;}
+.technicalSkills label{color:#FFF !important;}
+.technicalSkills h5{font-weight:300;}
+.technicalSkills h5:after{position:absolute;top:40px;left:12px;height:.5px;content:"";background:#FFF;-webkit-animation:technicalSkills 3s infinite ease;}
+
+.technicalSkills .row h5.left:before{position:absolute;top:465px;width:150px;left:0px;height:1px;content:"";background:#FFF;-webkit-animation:technicalSkillsSecond 3s infinite ease;}
+
+@-webkit-keyframes technicalSkills
+{
+    0%{width:0px;}
+    50%{width:213px;}
+    100%{width:0px;}
+}
+
+@-webkit-keyframes technicalSkillsSecond
+{
+    0%{width:0px;}
+    50%{width:312px;}
+    100%{width:0px;}
+}
+
+.contactMe{z-index:9999 !important;height:400px;background-image:url(images/bgpattern.jpg);font-family:Great Vibes;border-radius:3px;color:#424242;}
+.contactMe p,.contactMe small{font-size:20px;}
+.contactMe p:first-child{position:absolute;top:15px;right:15px;}
+.contactMe p:last-child{position:absolute;bottom:15px;right:15px;}
+.contactMe h3{font-family:Belladona;text-shadow:inset 1px 1px 1px #000;margin-bottom:5px;}
+.myName{margin-top:150px;}
+.myName small{margin-left:130px !important;}
+
+.myCareer{z-index:99999 !important;}
+.project1 h5{font-weight:300;}
+
+.myWidth{-webkit-animation:mywidth .5s ease-in-out;}
+@-webkit-keyframes mywidth
+{
+    0%{-webkit-transform:scale(0);}
+    33%{-webkit-transform:scale(1.1);}
+    66%{-webkit-transform:scale(.9);}
+    100%{-webkit-transform:scale(1);}
+}
+
+.myCareer .card ul{margin:0;}
+.myCareer .card ul li{font-size:12px;line-height:2;}
+.myCareer .card i.mdi-dots-vertical{margin-top:10px !important;color:#aaa;}
+.myCareer .card i.mdi-dots-vertical:hover{color:#000;}
+.myCareer .card .card-reveal ul li{font-size:14px !important;font-weight:400;}
+</style>
+
+</head>
+
+<body class="white-text" style="background:#5c5757;">
+
+<div class="mdi mdi-close close waves-effect waves-light right grey darken-3" style="display:none"></div>
+
+<span id="first" class="div"></span>
+<span id="second" class="div"></span>
+<span id="third" class='div'></span>
+<span id="fourth" class="div"></span>
+
+<div class="example" style="width:300px;height:300px;border-radius:50%;background:#FFF;position:absolute;bottom:-100px;left:-100px;display:none;">asdf</div>
+
+<div class="row ">
+  
+  
+
+  <div class="leftBtn">
+    <a href="#!" class=" white btn-floating btn-large waves-effect waves-block">
+          <span class="first"></span>
+          <span class="second"></span>
+          <span class="third"></span>
+        
+    </a>
+
+    <ul class="white-text" >
+      <li class="tooltipped" data-position="top" data-delay="50" data-tooltip="My Summery"><a class="btn-floating red"><i class="mdi mdi-account"></i></a></li>
+      <li class="tooltipped" data-position="right" data-delay="50" data-tooltip="My Education"><a class="btn-floating brown"><i class="mdi mdi-certificate"></i></a></li>
+      <li class="tooltipped" data-position="right" data-delay="50" data-tooltip="My Career"><a class="btn-floating green"><i class="mdi mdi-tie"></i></a></li>
+      <li class="tooltipped" data-position="right" data-delay="50" data-tooltip="Contact Me"><a class="btn-floating blue"><i class="mdi mdi-phone"></i></a></li>
+    </ul>
+  </div>
+  
+
+
+</div>
+
+<div class="row">
+
+    <div class="container">
+
+        <div class="col l8 push-l2 m8 push-m2 s12  aboutMe" style="display:none">
+            <h5>SUMMERY</h5>
+            <div class='clearfix'></div>
+            <ul>
+                <li>
+                    Around <b>1+</b> year of Experience in analysis, design and development of client/server, web based and n-tier applications in <b>C# and Responsive Web designing.</b>
+                </li>
+                
+                <li>
+                    Expert in developing web applications in <b>Microsoft Visual Studio .Net IDE</b> using <b>C#.Net</b> 3.5/ 4.0/ 4.5, ASP.NET, ADO.NET, SQL Server.
+                </li>
+
+                <li>
+                    Good Knowledge in <b>Html5,CSS3,Javascript</b>
+                </li>
+
+                <li>
+                    Good Knowledge in <b>Responsive Design</b>
+                </li>
+
+                <li>
+                    Expertise creating Html Forms in <b>Bootstrap & Material Design</b>
+                </li>
+
+                <li>
+                    Good Knowledge in <b>OOPS, HTML, JQUERY</b>
+                </li>
+
+                <li>
+                    Expert in debugging an application using the debugging tools provided by the <b>Visual Studio .Net IDE.</b>
+                </li>
+
+                <li>
+                    Having Good Knowledge in <b>Web Hosting, FTP Access</b>
+                </li>
+
+                <li>
+                    Good Working Knowledge in <b>Google Analytics</b>
+                </li>
+
+                <li>
+                    Expertise Knowledge in <b>Photoshop and Flash</b>
+                </li>
+
+                <li>
+                    Experience in developing <b>E-commerce</b> Html Templates and Involved in various Business Domains
+                </li>
+
+                <li>
+                    Experience in generating Reports using <b>Crystal Reports</b> as per the client requirement.
+                </li>
+
+                <li>
+                    Major responsibilities include getting requirements from the user, developing <b>Crystal Reports</b> maintaining proper documentation of the reports for future reference
+                </li>
+
+                <li>
+                    Good verbal and written communication skills, a super works ethic, and the ability to work well in a team or individual environment and also extensive mentoring experience. 
+                </li>
+            </ul>
+        </div>
+
+        <div class="col l8 push-l2 m8 push-m2 s12  technicalSkills white-text" style="display:none">
+            <h5>TECHNICAL SKILLS</h5>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Languages</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>C, C#, JAVA</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Database</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>SQL Server 2008 / 2012</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Web Technologies</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>HTML5, CSS3, JQUERY, Material Design, Bootstrap</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Design & Development Tools</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>Visual Studio, Notepad++, Edit Plus</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <label>Reporting Tools</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>Crystal Reports</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <h5 class="left">EDUCATION QUALIFICATION</h5>
+                <div class="clearfix"></div>
+                <p>
+                    <b>Bachelors of Technology ( B.Tech - CSE )</b> with 63.51% in 2013 from JNTU Kakinada.
+                </p>
+                
+                <p>
+                    <b>Diploma</b> from State Board of Technical Education & Training in Computer Science with 68%.
+                </p>
+                
+                <p>
+                    <b>Matriculation</b> with 71% in 2007.
+                </p>
+                    
+            </div>
+
+        </div>
+
+        <div class="col l8 push-l2 m8 push-m2 s12 contactMe" style="display:none;">
+            <div class="row">
+                <p class="right">
+                    <span class="right">+91 - 9030607097 </span>
+                    <br />
+                    <span>ballankumar@gmail.com</span>
+                </p>
+                
+                <div align="center" class="myName">
+                    <h3>NARESH KUMAR</h3>
+                    <small class="">Asso. Software Engineer</small>
+                </div>
+                <p class="right">
+                    #12-110, Westren Street, Challapalli
+                </p>    
+            </div>
+        </div>
+
+        <div class="row myCareer" >
+        <div class="col m6 s12 project1" style="display:none">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/bgpattern.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator text-darken-4 indigo-text">Kalyana Bandhan<i class="mdi mdi-dots-vertical right"></i>
+                  <div class="clearfix"></div>
+                  <ul class="grey-text">
+                    <li>ASP.NET, C#.NET, SQL SERVER, HTML, CSS, JavaScript, Bootstrap</li>
+                    <li>Web Designer, Developer</li>
+                  </ul>
+                  </span>
+                  
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title indigo-text text-darken-4">Kalyana Bandhan<i class="mdi mdi-close right"></i></span>
+                  <p class="grey-text text-darken-3">
+                  <big>Description</big>
+                  <br />
+                    This project is mainly designed for Matrimony and aimed to provide information about brides & grooms. Featured profile listings that change regularly based on the package.
+                    <ul class="black-text">
+                        <li>Involved in requirement gathering and design.</li>
+                        <li>Developed web forms in ASP.NET using c# as the code-behind language.</li>
+                        <li>Used ADO.NET objects such as Data Adapter, Data Reader, Dataset and Data List for reading/ updating records in the database.</li>
+                        <li>Developed master pages.</li>
+                        <li>Resolve bugs & Cross-browser compatibility Issues.</li>
+                        <li>Desktop, Mobile and Tablet Responsive.</li>
+                        <li>Planning, design and implementation of complete web site. </li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+        </div>
+
+        <div class="col m6 s12 project1" style="display:none">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/bgpattern.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator green-text text-darken-4">D - Dial<i class="mdi mdi-dots-vertical right right"></i>
+                      <div class="clearfix"></div>
+                      <ul class="grey-text">
+                        <li>ASP.NET, C#.NET, SQL SERVER , HTML, CSS, JavaScript, Bootstrap</li>
+                        <li>Web Designer, Developer</li>
+                      </ul>
+                  </span>
+                  
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title text-darken-4 green-text">D - Dial<i class="mdi mdi-close right"></i></span>
+                  <p class="grey-text text-darken-3">
+                  <big>Description</big>
+                  <br />
+                    This is an e-commerce application. It involves in maintain goods and delivers according to the users orders.
+                    <ul class="black-text">
+                        <li>Involved in requirement gathering and design.</li>
+                        <li>Developed web forms in ASP.NET using c# as the code-behind language.</li>
+                        <li>Used ADO.NET objects such as Data Adapter, Data Reader, Dataset and Data List for reading/ updating records in the database.</li>
+                        <li>Developed master pages.</li>
+                        <li>Resolve bugs & Cross-browser compatibility Issues.</li>
+                        <li>Desktop, Mobile and Tablet Responsive.</li>
+                        <li>Planning, design and implementation of complete web site. </li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+        </div>
+
+        <div class="col m6 s12 project1" style="display:none">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/bgpattern.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator red-text text-darken-4">Aahaar Kuteer<i class="mdi mdi-dots-vertical right right"></i>
+                      <div class="clearfix"></div>
+                      <ul class="grey-text">
+                        <li>ASP.NET, C#.NET, SQL SERVER, HTML, CSS , JavaScript, Bootstrap</li>
+                        <li>Web Designer, Developer</li>
+                      </ul>
+                  </span>
+                  
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title red-text text-darken-4">Aahaar Kuteer<i class="mdi mdi-close right"></i></span>
+                  <p class="grey-text text-darken-3">
+                  <big>Description</big>
+                  <br />
+                    This is an e-commerce application. It involves in maintain goods and delivers according to the users orders.
+                    <ul class="black-text">
+                        <li>Involved in requirement gathering and design.</li>
+                        <li>Developed web forms in ASP.NET using c# as the code-behind language.</li>
+                        <li>Used ADO.NET objects such as Data Adapter, Data Reader, Dataset and Data List for reading/ updating records in the database.</li>
+                        <li>Developed master pages.</li>
+                        <li>Resolve bugs & Cross-browser compatibility Issues.</li>
+                        <li>Desktop, Mobile and Tablet Responsive.</li>
+                        <li>Planning, design and implementation of complete web site. </li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+        </div>
+
+        <div class="col m6 s12 project1" style="display:none">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="images/bgpattern.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator brown-text text-darken-4">IDA (Indian Dental Association)<i class="mdi mdi-dots-vertical right"></i>
+                      <div class="clearfix"></div>
+                      <ul class="grey-text">
+                        <li>Asp.NET with C#, ADO.Net, SQL Server</li>
+                        <li>Developer</li>
+                      </ul>
+                  </span>
+                  
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title brown-text text-darken-4">IDA<i class="mdi mdi-close right"></i></span>
+                  <p class="grey-text text-darken-3">
+                  <big>Description</big>
+                  <br />
+                    This web application is for Dental Association. It keeps all the branches & doctors information in all over AP State who is being part of this association.
+                    <ul class="black-text">
+                        <li>Worked for IDA for creating Forms and Reports as per User requirements.</li>
+                        <li>Coordinated meetings with business users and development teams to gather System requirements and data requirements.</li>
+                        <li>Involved in development and documentation on various phases. </li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+        </div>
+    </div>
+        
+    </div>
+
+    
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        //        $(".btn-floating").click(function () {
+        //            $(".btn-floating span.first").toggleClass("first-one");
+        //            $(".btn-floating span.second").toggleClass("second-one");
+        //            $(".btn-floating span.third").toggleClass("third-one");
+        //            $(".btn-floating span").toggleClass("toggleIcon");
+        //        });
+
+
+        $(".leftBtn .btn-floating").click(function () {
+            $(".leftBtn ul li:nth-child(1)").toggleClass("nth-child-1");
+            $(".leftBtn ul li:nth-child(2)").toggleClass("nth-child-2");
+            $(".leftBtn ul li:nth-child(3)").toggleClass("nth-child-3");
+            $(".leftBtn ul li:nth-child(4)").toggleClass("nth-child-4");
+
+            $(".btn-floating span.first").toggleClass("first-one");
+            $(".btn-floating span.second").toggleClass("second-one");
+            $(".btn-floating span.third").toggleClass("third-one");
+            $(".btn-floating span").toggleClass("toggleIcon");
+        });
+
+
+        $(".leftBtn ul li:first-child").click(function () {
+            $(".technicalSkills").slideUp();
+            $(".contactMe").slideUp();
+            $(".close").hide();
+            $(".project1").hide();
+            $("#first").css({
+                'width': '100%',
+                'height': '100%',
+                //'-webkit-transform': 'scale(100)',
+                'border-radius': '0px',
+                '-webkit-transition': 'all .5s ease-in-out',
+                'z-index': '0',
+                'display': 'block',
+                'position': 'absolute',
+                'left': '0px',
+                'bottom': '0px'
+            });
+            setTimeout(function () {
+                $(".aboutMe").show("slow");
+                //$(".close").show();
+            }, 1000);
+            setTimeout(function () {
+                $(".close").show();
+            }, 2000);
+        });
+
+        $(".leftBtn ul li:nth-child(2)").click(function () {
+            $(".aboutMe").slideUp();
+            $(".contactMe").slideUp();
+            $(".close").hide();
+            $(".project1").hide();
+            $("#second").css({
+                'width': '100%',
+                'height': '100%',
+                //'-webkit-transform': 'scale(100)',
+                'border-radius': '0px',
+                '-webkit-transition': 'all .5s ease-in-out',
+                'z-index': '0',
+                'display': 'block',
+                'position': 'absolute',
+                'left': '0px',
+                'bottom': '0px'
+            });
+            setTimeout(function () {
+                $(".technicalSkills").show("slow");
+                //$(".close").show();
+            }, 1000);
+            setTimeout(function () {
+                $(".close").show();
+            }, 2000);
+        });
+
+        $(".leftBtn ul li:nth-child(3)").click(function () {
+            $(".aboutMe").hide();
+            $(".technicalSkills").hide();
+            $(".contactMe").hide();
+            $("#third").css({
+                'width': '100%',
+                'height': '100%',
+                //'-webkit-transform': 'scale(100)',
+                'border-radius': '0px',
+                '-webkit-transition': 'all .5s ease-in-out',
+                'z-index': '0',
+                'display': 'block',
+                'position': 'absolute',
+                'left': '0px',
+                'bottom': '0px'
+            });
+            
+            setTimeout(function () {
+                $(".myCareer").show();
+                $(".myCareer .project1:first-child").show();
+                $(".project1:first-child").addClass("myWidth");
+            }, 2000);
+
+            setTimeout(function () {
+            $(".myCareer").show();
+                $(".myCareer .project1:nth-child(2)").show();
+                $(".project1:nth-child(2)").addClass("myWidth");
+            }, 3000);
+
+            setTimeout(function () {
+            $(".myCareer").show();
+                $(".myCareer .project1:nth-child(3)").show();
+                $(".project1:nth-child(3)").addClass("myWidth");
+            }, 4000);
+
+            setTimeout(function () {
+            $(".myCareer").show();
+                $(".myCareer .project1:last-child").show();
+                $(".project1:last-child").addClass("myWidth");
+            }, 5000);
+            
+        });
+
+        $(".leftBtn ul li:last-child").click(function () {
+            $(".aboutMe").slideUp();
+            $(".technicalSkills").slideUp();
+            $(".close").hide();
+            $(".project1").hide();
+            $("#fourth").css({
+                'width': '100%',
+                'height': '100%',
+                //'-webkit-transform': 'scale(100)',
+                'border-radius': '0px',
+                '-webkit-transition': 'all .5s ease-in-out',
+                'z-index': '0',
+                'display': 'block',
+                'position': 'absolute',
+                'left': '0px',
+                'bottom': '0px'
+            });
+            setTimeout(function () {
+                $(".contactMe").show("slow");
+                //$(".close").show();
+            }, 1000);
+            setTimeout(function () {
+                $(".close").show();
+            }, 2000);
+        });
+
+        $(".close").click(function () {
+            $(".aboutMe").hide();
+            $(".technicalSkills").hide();
+            $(".contactMe").hide();
+            $(".close").hide();
+            $("#first").css({
+                'width':'0%',
+                'height':'0%',
+                'border-radius':'50%',
+            });
+            
+            $("#second").css({
+                'width':'0%',
+                'height':'0%',
+                'border-radius':'50%',
+            });
+            
+            $("#third").css({
+                'width':'0%',
+                'height':'0%',
+                'border-radius':'50%',
+            });
+
+            $("#fourth").css({
+                'width':'0%',
+                'height':'0%',
+                'border-radius':'50%',
+            });
+        });
+
+
+    });
+
+
+    
+</script>
+
+</body>
+</html>
